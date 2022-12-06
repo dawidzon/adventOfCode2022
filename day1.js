@@ -21,22 +21,12 @@ fs.readFile("./input_01.txt", "utf8", (err, data) => {
     return accumulator;
   }, []);
 
-  function findBiggestValue(array) {
-    let biggestValueOfCalories = 0;
-    let indexOfBiggestValue = 0;
+  const sumOfCaloriesSorted = arrayWithSumedCalories.sort();
+  const sumOfCaloriesSortedAndReversed = sumOfCaloriesSorted.reverse();
 
-    array.forEach((element, index) => {
-      if (element > biggestValueOfCalories) {
-        biggestValueOfCalories = element;
-        indexOfBiggestValue = index;
-      }
-    });
-    array.splice(indexOfBiggestValue, 1);
-    return biggestValueOfCalories;
-  }
-  let finallSum = 0;
-  for (let counter = 0; counter < 3; counter++) {
-    finallSum += findBiggestValue(arrayWithSumedCalories);
-  }
-  console.log(finallSum);
+  console.log(
+    sumOfCaloriesSortedAndReversed[0] +
+      sumOfCaloriesSortedAndReversed[1] +
+      sumOfCaloriesSortedAndReversed[2]
+  );
 });
